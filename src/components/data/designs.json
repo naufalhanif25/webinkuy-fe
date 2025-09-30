@@ -1,0 +1,36 @@
+[
+    {
+        "imagePath": "images/jaksabang.webp",
+        "kategori": "Pariwisata",
+        "title": "JakSabang",
+        "description": "Platform wisata terpadu untuk menjelajahi destinasi wisata, penginapan, dan transportasi terbaik di Sabang.",
+        "username": "naufal",
+        "userTestimoni": "Websitenya sangat bagus, interaktif, dan Fungsional. Sangat memuaskan.",
+        "rating": 4.8,
+        "impact": 0.92,
+        "githubUrl": "https://github.com/M-Aidil-Fitrah/JakSabang.git",
+        "webUrl": "https://jaksabang.com/"
+    },
+    {
+        "imagePath": "images/bluestamp.webp",
+        "kategori": "Sosial",
+        "title": "Bluestamp",
+        "description": "Platform berbagi cerita singkat, curahan hati, kutipan, dan motivasi berbasis komunitas.",
+        "username": "rezza",
+        "userTestimoni": "Sesuai ekspektasi, interaktif, dan ramah pengguna. Luar biasa.",
+        "rating": 4.5,
+        "impact": 0.87,
+        "githubUrl": "https://github.com/naufalhanif25/bluestamp.git"
+    },
+    {
+        "imagePath": "images/teras-beasiswa.webp",
+        "kategori": "Pendidikan",
+        "title": "Teras Beasiswa",
+        "description": "Website sistem informasi beasiswa sederhana bagi siswa dan mahasiswa Indonesia.",
+        "username": "haikal",
+        "userTestimoni": "Hasilnya luar biasa, jasa WebinKuy sangat recommended.",
+        "rating": 4.2,
+        "impact": 0.85,
+        "githubUrl": "https://github.com/naufalhanif25/teras-beasiswa.git"
+    }
+]
