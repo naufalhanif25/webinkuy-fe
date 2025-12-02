@@ -13,7 +13,7 @@ export default function OrderPopup ({ onClick }: { onClick: () => void }) {
                 </span>
                 <span className="w-full flex items-center justify-center px-4">
                     <button 
-                        data-faro-user-action-name="Order placed successfully"
+                        data-faro-user-action-name="close-popup"
                         className="group relative overflow-hidden py-2 px-4 h-fit w-full gap-2 bg-amber-700 border-2 border-amber-600/50 transition-colors duration-200 ease-out cursor-pointer shrink-0 rounded-full flex items-center justify-center"
                         onClick={onClick}
                     >

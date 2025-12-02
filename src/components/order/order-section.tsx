@@ -451,7 +451,7 @@ export default function OrderSection (props?: ElementProps) {
                                 ].map(button => {
                                 return (
                                     <button 
-                                        data-faro-user-action-name={`Order form button clicked: ${JSON.stringify({form: formIndex, data: orderData})}`}
+                                        data-faro-user-action-name="order-form"
                                         className={`relative flex items-center justify-center overflow-hidden rounded-full px-6 py-3 bg-amber-700 border-2 border-amber-600/50 max-w-60 w-full ${button.className}`}
                                         onClick={button.callback}
                                     >
