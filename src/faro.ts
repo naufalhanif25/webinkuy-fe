@@ -2,13 +2,13 @@ import { getWebInstrumentations, initializeFaro, UserActionInstrumentation } fro
 import { TracingInstrumentation } from "@grafana/faro-web-tracing";
 
 export const faro = initializeFaro({
-    url: "https://faro-collector-prod-ap-southeast-2.grafana.net/collect/3f07a4ab98e88085dc025d26eb150d8d",
+    url: import.meta.env.VITE_FARO_URL,
     app: {
         name: "WebinKuy",
         version: "1.0.0",
         environment: "production",
     },
-    
+    apiKey: import.meta.env.VITE_FARO_API_KEY,    
     instrumentations: [
         ...getWebInstrumentations(),
         new TracingInstrumentation(),
