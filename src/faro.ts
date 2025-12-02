@@ -7,8 +7,7 @@ export const faro = initializeFaro({
         name: "WebinKuy",
         version: "1.0.0",
         environment: "production",
-    },
-    apiKey: import.meta.env.VITE_FARO_API_KEY,    
+    }, 
     instrumentations: [
         ...getWebInstrumentations(),
         new TracingInstrumentation(),
