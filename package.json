@@ -12,6 +12,9 @@
   "dependencies": {
     "@grafana/faro-web-sdk": "^1.19.0",
     "@grafana/faro-web-tracing": "^1.19.0",
+    "@sentry/react": "^10.28.0",
+    "@sentry/tracing": "^7.120.4",
+    "@sentry/vite-plugin": "^4.6.1",
     "@tailwindcss/vite": "^4.1.13",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.21",

@@ -1,3 +1,5 @@
+import "../../faro";
+import * as Sentry from "@sentry/react";
 import { useState, useRef } from "react"
 import type { ElementProps } from "../../props/element"
 import { Div } from "../autorender/autorender"
@@ -18,7 +20,6 @@ import {
     Image
 } from "lucide-react"
 import { sendEmail } from "./utils/send-email"
-import "../../faro";
 
 export interface OrderDataProps {
     package: 1 | 2 | 3 | null;
@@ -437,12 +438,18 @@ export default function OrderSection (props?: ElementProps) {
                                 [
                                     {
                                         title: "Sebelumnya",
-                                        callback: validateInput(formIndex, "prev") ? () => changeFormIndex("prev") : () => {},
+                                        callback: validateInput(formIndex, "prev") ? () => {
+                                            Sentry.captureMessage(`Prev button clicked: form=${formIndex}`);
+                                            changeFormIndex("prev");
+                                        } : () => {},
                                         className: `${!validateInput(formIndex, "prev") ? "opacity-[0.5] pointer-events-none" : "opacity-[1]"}`
                                     },
                                     {
                                         title: `${formIndex < 3 ? "Selanjutnya" : "Kirim"}`,
-                                        callback: validateInput(formIndex, "next") && formIndex < 3 ? () => changeFormIndex("next") : async () => {
+                                        callback: validateInput(formIndex, "next") && formIndex < 3 ? () => {
+                                            Sentry.captureMessage(`Next button clicked: form=${formIndex}`);
+                                            changeFormIndex("next");
+                                        } : async () => {
                                             await sendEmail(orderData);
                                             setOpenPopup(true);
                                         },
