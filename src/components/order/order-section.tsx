@@ -18,7 +18,7 @@ import {
     Image
 } from "lucide-react"
 import { sendEmail } from "./utils/send-email"
-import { faro } from "../../faro";
+import "../../faro";
 
 export interface OrderDataProps {
     package: 1 | 2 | 3 | null;
@@ -437,22 +437,13 @@ export default function OrderSection (props?: ElementProps) {
                                 [
                                     {
                                         title: "Sebelumnya",
-                                        callback: validateInput(formIndex, "prev") ? () => () => {
-                                            faro.api.pushEvent(`Prev button clicked (form ${formIndex} of 3)`);
-                                            changeFormIndex("prev");
-                                        } : () => {},
+                                        callback: validateInput(formIndex, "prev") ? () => changeFormIndex("prev") : () => {},
                                         className: `${!validateInput(formIndex, "prev") ? "opacity-[0.5] pointer-events-none" : "opacity-[1]"}`
                                     },
                                     {
                                         title: `${formIndex < 3 ? "Selanjutnya" : "Kirim"}`,
-                                        callback: validateInput(formIndex, "next") && formIndex < 3 ? () => () => {
-                                            faro.api.pushLog([`Form ${formIndex} has been completed`, orderData]);
-                                            faro.api.pushEvent(`Next button clicked (form ${formIndex} of 3)`);
-                                            changeFormIndex("next");
-                                        } : async () => {
-                                            faro.api.pushEvent("Send button clicked");
+                                        callback: validateInput(formIndex, "next") && formIndex < 3 ? () => changeFormIndex("next") : async () => {
                                             await sendEmail(orderData);
-                                            faro.api.pushLog(["Order placed successfully", orderData]);
                                             setOpenPopup(true);
                                         },
                                         className: `${!validateInput(formIndex, "next") ? "opacity-[0.5] pointer-events-none" : "opacity-[1]"}`
@@ -460,6 +451,7 @@ export default function OrderSection (props?: ElementProps) {
                                 ].map(button => {
                                 return (
                                     <button 
+                                        data-faro-user-action-name={`Order form button clicked: ${JSON.stringify({form: formIndex, data: orderData})}`}
                                         className={`relative flex items-center justify-center overflow-hidden rounded-full px-6 py-3 bg-amber-700 border-2 border-amber-600/50 max-w-60 w-full ${button.className}`}
                                         onClick={button.callback}
                                     >
